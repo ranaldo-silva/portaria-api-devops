@@ -6,4 +6,10 @@ services:
     container_name: portaria-light
     ports:
       - "8080:8080"
+    # Adicionamos a seção 'environment'
+    # ATENÇÃO: Substitua os valores abaixo pelos seus dados reais!
+    environment:
+      - DB_URL=jdbc:oracle:thin:@seu-host-de-bd:1521:SUA_SID
+      - DB_USER=seu_usuario_bd
+      - DB_PASS=sua_senha_bd
     restart: always
