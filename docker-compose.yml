@@ -1,16 +1,9 @@
 version: "3.8"
+
 services:
-  portaria-app:
+  portaria:
     build: .
-    container_name: portaria_app
-    restart: unless-stopped
+    container_name: portaria-light
     ports:
       - "8080:8080"
-    volumes:
-      - portaria_data:/app/data
-    user: "1000:1000"
-    environment:
-      - SPRING_PROFILES_ACTIVE=prod
-
-volumes:
-  portaria_data:
+    restart: always
