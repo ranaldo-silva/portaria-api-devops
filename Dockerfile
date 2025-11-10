@@ -2,6 +2,12 @@
 FROM gradle:8-jdk17 AS builder
 WORKDIR /home/gradle/project
 COPY --chown=gradle:gradle . .
+
+# <<< ADICIONE ESTA LINHA
+# Dá permissão de execução ao script do Gradle
+RUN chmod +x ./gradlew
+
+# Agora este comando vai funcionar
 RUN ./gradlew clean build -x test --no-daemon
 
 # Stage 2: runtime (imagem leve baseada em alpine)
